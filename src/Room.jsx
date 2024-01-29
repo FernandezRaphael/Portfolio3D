@@ -21,7 +21,7 @@ export default function Room() {
         snap={{ mass: 4, tension: 400 }}
       >
         <Float rotationIntensity={0.4}>
-          <primitive object={nodes.baked} rotation-y={-1} position={[-1, -1, 3]}>
+          <primitive object={nodes.baked} rotation-y={-1} position={[-0.5, -1, 3]}>
             <meshBasicMaterial map={bakedTexture} />
             <Html
               transform
