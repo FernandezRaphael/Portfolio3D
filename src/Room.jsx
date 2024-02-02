@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Html, PresentationControls, Float, useGLTF, useTexture, OrbitControls } from '@react-three/drei';
+import { Text, Html, Float, useGLTF, useTexture, OrbitControls } from '@react-three/drei';
 
 export default function Room() {
   const { nodes } = useGLTF('./room3d/room.glb');
@@ -10,41 +10,43 @@ export default function Room() {
     <>
       <color args={['#191919']} attach="background" />
 
-      {/* <OrbitControls makeDefault /> */}
+      <OrbitControls makeDefault />
 
-      <PresentationControls
-        global
-        rotation={[0.13, 0.1, 0]}
-        polar={[-0.4, 0.2]}
-        azimuth={[-1, 0.75]}
-        config={{ mass: 2, tension: 400 }}
-        snap={{ mass: 4, tension: 400 }}
-      >
-        <Float rotationIntensity={0.4}>
-          <primitive object={nodes.baked} rotation-y={-1} position={[-0.5, -1, 3]}>
-            <meshBasicMaterial map={bakedTexture} />
-            <Html
-              transform
-              wrapperClass='htmlScreen'
-              distanceFactor={1.17}
-              position={[-3.67, 4.1, 1.58]}
-              rotation-y={1.58}
-            >
-              <iframe src="https://fernandezraphael.netlify.app/" />
-            </Html>
-          </primitive>
-          <Text
-            font="./bangers-v20-latin-regular.woff"
-            fontSize={1}
-            position={[3.9, 0.35, 2.5]}
-            rotation-y={-1}
-            maxWidth={2}
-            textAlign="center"
+      <Float rotationIntensity={0.4}>
+        <primitive object={nodes.baked} rotation-y={-1} position={[-0.5, -2, 3]}>
+          <meshBasicMaterial map={bakedTexture} />
+          <Html
+            transform
+            wrapperClass='htmlScreen'
+            distanceFactor={1.17}
+            position={[-3.67, 4.1, 1.58]}
+            rotation-y={1.58}
           >
-            FERNANDEZ RAPHAEL
-          </Text>
-        </Float>
-      </PresentationControls>
+            <iframe src="https://fernandezraphael.netlify.app/" />
+          </Html>
+        </primitive>
+        <Text
+          font="./bangers-v20-latin-regular.woff"
+          fontSize={1}
+          position={[3.9, -0.5, 2.5]}
+          rotation-y={-1}
+          maxWidth={2}
+          textAlign="center"
+        >
+          FERNANDEZ RAPHAEL
+        </Text>
+        <Text
+          font="./bangers-v20-latin-regular.woff"
+          fontSize={1}
+          position={[-1.9, 4.70, -1.40]}
+          rotation-y={0.57}
+          maxWidth={2}
+          textAlign="center"
+          color={"#582C99"}
+        >
+          Portfolio
+        </Text>
+      </Float>
     </>
   );
 }
